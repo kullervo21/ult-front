@@ -9,7 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class ListeProduitComponent implements OnInit {
   listeProduit: any[] = [];
-  displayedColumns: string[] = ['Nom', 'Description', 'Prix', 'Image']
+  displayedColumns: string[] = ['Nom', 'Description', 'Prix', 'Image', 'Quantité']
   dataSource = new MatTableDataSource(this.listeProduit);
   client = null;
 
@@ -34,7 +34,8 @@ export class ListeProduitComponent implements OnInit {
   }
 
 
+  ajoutPanier(produit: any, quantity: HTMLInputElement) {
+    console.log(this.client.adresse_mail + ' ' + produit.numeroProduit + ' ' +quantity.value);
 
-
-
+  }
 }
