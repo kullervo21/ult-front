@@ -20,6 +20,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginFormComponent } from './sign-in-form/login-form.component';
+import { PanierComponent } from './panier/panier.component';
 
 
 
@@ -32,6 +33,7 @@ import { LoginFormComponent } from './sign-in-form/login-form.component';
     SignUpFormComponent,
     PageNotFoundComponent,
     LoginFormComponent,
+    PanierComponent,
 
   ],
   imports: [

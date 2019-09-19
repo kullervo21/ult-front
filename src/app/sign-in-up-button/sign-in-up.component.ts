@@ -32,4 +32,9 @@ export class SignInUpComponent implements OnInit {
     localStorage.removeItem('client');
     location.href = '/';
   }
+
+  versPanier() {
+    this.router.navigate(['/panier'])
+  }
+
 }
