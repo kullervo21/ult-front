@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -11,10 +12,10 @@ export class LoginFormComponent implements OnInit {
   formLogin = new FormGroup({
     mailControl: new FormControl('', [Validators.required, Validators.email]),
     passwdControl: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(/^.*[A-Z].*$/)]),
-            })
+            });
   password;
-  adresse_mail;
-  hide = false;
+  adresseMail;
+  hide = true;
 
 
 
@@ -33,22 +34,17 @@ export class LoginFormComponent implements OnInit {
   }
 
   register(){
-    console.log(this.formLogin.value);
+    console.log('http://localhost:8080/logUser/'+this.adresseMail+'/'+this.password);
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    this.httpClient.post('http://localhost:8080/addUser', JSON.stringify(
+    this.httpClient.post('http://localhost:8080/logUser/', JSON.stringify(
       {
-        adresse_mail: this.adresse_mail,
+        adresse_mail: this.adresseMail,
         password: this.password
       }),
-      {headers}).subscribe((res: { message: string }) => {
+      {headers}).subscribe((res: any) => {
 
-
-    /*  if (res.message == 'Utilisateur créé avec succès') {
-        this.router.navigate(['/produits']);
-      }
-      else {
-        alert('Verifiez le formulaire votre enregistrement c\'est mal passé')
-      }*/
+        localStorage.setItem('client',JSON.stringify(res));
+        location.href = '/';
     });
 
   }

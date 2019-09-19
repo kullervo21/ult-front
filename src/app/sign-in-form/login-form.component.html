@@ -1,6 +1,6 @@
 <div class="signin-container" [formGroup]="formLogin">
   <mat-form-field>
-    <input matInput placeholder="Entrez votre adresse mail" formControlName="mailControl" required [(ngModel)]="adresse_mail">
+    <input matInput placeholder="Entrez votre adresse mail" formControlName="mailControl" required [(ngModel)]="adresseMail">
     <mat-error *ngIf="formLogin.get('mailControl').invalid">{{getErrorMessageMail()}}</mat-error>
   </mat-form-field>
   <mat-form-field>
@@ -11,3 +11,4 @@
     <mat-error *ngIf="formLogin.get('passwdControl').invalid">{{getErrorMessagePasswd()}}</mat-error>
   </mat-form-field>
   <button mat-raised-button (click)="register()" >Valider</button>
+</div>

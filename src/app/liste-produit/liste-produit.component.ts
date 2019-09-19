@@ -11,10 +11,17 @@ export class ListeProduitComponent implements OnInit {
   listeProduit: any[] = [];
   displayedColumns: string[] = ['Nom', 'Description', 'Prix', 'Image']
   dataSource = new MatTableDataSource(this.listeProduit);
+  client = null;
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
+
+    const clientJson = localStorage.getItem('client');
+    if(clientJson) {
+      this.client = JSON.parse(clientJson);
+    }
+
     this.httpClient.get('http://localhost:8080/listProduit').subscribe((res:any[]) => {
       this.listeProduit = res;
       this.dataSource = new MatTableDataSource(this.listeProduit);

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {MatSnackBar} from  '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -87,9 +86,6 @@ export class SignUpFormComponent implements OnInit {
 
       if (res.message == 'Utilisateur créé avec succès') {
         this.router.navigate(['/produits']);
-      }
-      else {
-        alert('Verifiez le formulaire votre enregistrement c\'est mal passé')
       }
     });
 
