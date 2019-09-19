@@ -1,0 +1,10 @@
+<div id="menu">
+
+  <button mat-button [matMenuTriggerFor]="menu" id="buttonPos">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="goToFumi()">Fumigène</button>
+    <button mat-menu-item (click)="gotToVet()">Vêtements</button>
+  </mat-menu>
+
+
+</div>

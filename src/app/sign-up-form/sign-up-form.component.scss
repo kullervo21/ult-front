@@ -1,0 +1,19 @@
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 35%;
+  margin-right: 35%;
+  padding: 30px;
+  border-left: black;
+  border-left-style: ridge;
+  border-right: black;
+  border-right-style: ridge;
+  border-bottom: black;
+  border-bottom-style: ridge;
+  border-top: black;
+  border-top-style: ridge;
+}
+
+.signup-container > * {
+  width: 100%;
+}

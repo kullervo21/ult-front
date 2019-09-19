@@ -1,0 +1,39 @@
+
+<div class="signup-container" [formGroup]="form">
+  <mat-form-field><input matInput  placeholder="Entrez votre adresse mail" formControlName="mailControl" required [(ngModel)]="adresse_mail">
+    <mat-error *ngIf="form.get('mailControl').invalid">{{getErrorMessageMail()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field><input matInput placeholder="Entrez votre nom" formControlName="nomControl" required [(ngModel)]="nom">
+    <mat-error *ngIf="form.get('nomControl').invalid">{{getErrorMessageNom()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Entrez votre prénom" formControlName="prenomControl" required [(ngModel)]="prenom">
+    <mat-error *ngIf="form.get('nomControl').invalid">{{getErrorMessagePrenom()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+  <input matInput placeholder="Entrez votre rue" formControlName="rueControl" required [(ngModel)]="rue">
+  <mat-error *ngIf="form.get('rueControl').invalid">{{getErrorMessageRue()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+  <input matInput placeholder="Entrez votre code postal" formControlName="cpControl" [(ngModel)]="cp">
+    <mat-error *ngIf="form.get('cpControl').invalid">{{getErrorMessageCp()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Entrez votre ville" formControlName="villeControl" required [(ngModel)]="ville">
+    <mat-error *ngIf="form.get('villeControl').invalid">{{getErrorMessageVille()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Entrez votre numéro de téléphone" formControlName="telControl" required [(ngModel)]="telephone">
+    <mat-error *ngIf="form.get('telControl').invalid">{{getErrorMessageTel()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Entrez votre mot de passe" [type]="hide ? 'password' : 'text'" formControlName="passwdControl" required [(ngModel)]="password">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="form.get('passwdControl').invalid">{{getErrorMessagePasswd()}}</mat-error>
+  </mat-form-field>
+  <button mat-raised-button [disabled]="!form.valid" (click)="onSubmit()">Valider
+  </button>
+
+</div>
