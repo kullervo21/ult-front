@@ -44,6 +44,7 @@ export class LoginFormComponent implements OnInit {
       {headers}).subscribe((res: any) => {
 
         localStorage.setItem('client',JSON.stringify(res));
+
         location.href = '/';
     });
 

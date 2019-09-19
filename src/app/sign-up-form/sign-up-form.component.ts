@@ -82,8 +82,7 @@ export class SignUpFormComponent implements OnInit {
         password: this.password
       }),
       {headers}).subscribe((res: { message: string }) => {
-
-
+        console.log(res);
       if (res.message == 'Utilisateur créé avec succès') {
         this.router.navigate(['/produits']);
       }

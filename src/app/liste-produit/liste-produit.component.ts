@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
@@ -35,7 +35,36 @@ export class ListeProduitComponent implements OnInit {
 
 
   ajoutPanier(produit: any, quantity: HTMLInputElement) {
-    console.log(this.client.adresse_mail + ' ' + produit.numeroProduit + ' ' +quantity.value);
+
+    let commandeJson: any = localStorage.getItem('commande');
+
+    let commande;
+
+    if(commandeJson == null){
+       commande = {
+        client: this.client,
+        ligneCommandeList: []
+      }
+    } else {
+      commande = JSON.parse(commandeJson);
+    }
+
+    commande.ligneCommandeList.push(
+      {
+        qteCommandee: quantity.value,
+        produit: produit
+      });
+
+    localStorage.setItem('commande', JSON.stringify(commande));
+  }
+
+  validerPanier() {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    this.httpClient
+      .post('http://localhost:8080/ajoutPanier', localStorage.getItem('commande'), {headers})
+      .subscribe((res: any) => {;
+        console.log(res)
+      });
 
   }
 }
