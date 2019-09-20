@@ -1,0 +1,39 @@
+<ng-container *ngFor="let produit of listeProduit">
+</ng-container>
+
+<div id="tableProduit">
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Nom">
+      <th mat-header-cell *matHeaderCellDef> Nom</th>
+      <td mat-cell *matCellDef="let produit"> {{produit.produit.nomProduit}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell class="description" *matHeaderCellDef> Description</th>
+      <td mat-cell class="description" *matCellDef="let produit"> {{produit.produit.descriptifProduit}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Prix">
+      <th mat-header-cell *matHeaderCellDef> Prix</th>
+      <td mat-cell *matCellDef="let produit"> {{produit.produit.prix}} € </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Image">
+      <th mat-header-cell *matHeaderCellDef> Image</th>
+      <td mat-cell  *matCellDef="let produit"> <img src="{{produit.produit.image}}" height="200px" width="200px"/> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Quantité" >
+      <th mat-header-cell *matHeaderCellDef width="10%"> Quantité</th>
+      <td mat-cell *matCellDef="let produit"> {{produit.qteCommandee}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
