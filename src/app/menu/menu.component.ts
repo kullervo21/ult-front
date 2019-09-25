@@ -13,11 +13,9 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToFumi(){
+  goToMenu(){
     this.router.navigate(['/produits'])
   }
-  gotToVet(){
-    this.router.navigate(['/produits'])
-  }
+
 
 }

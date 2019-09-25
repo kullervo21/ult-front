@@ -30,6 +30,7 @@ export class SignInUpComponent implements OnInit {
 
   deconnection() {
     localStorage.removeItem('client');
+    localStorage.removeItem('commande');
     location.href = '/';
   }
 
