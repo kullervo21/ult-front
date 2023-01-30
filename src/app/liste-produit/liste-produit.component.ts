@@ -33,6 +33,13 @@ export class ListeProduitComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  delete(){
+  const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+      this.httpClient.delete('http://127.0.0.1:8080/deleteCategorie/666',
+        {headers}).subscribe((res: { message: string }) => {
+          console.log(res);
+      });
+  }
 
   ajoutPanier(produit: any, quantity: HTMLInputElement) {
 
