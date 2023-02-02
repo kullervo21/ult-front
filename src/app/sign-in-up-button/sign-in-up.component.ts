@@ -19,7 +19,6 @@ export class SignInUpComponent implements OnInit {
       this.client = JSON.parse(clientJson);
       this.signIn.emit(true);
     }
-
   }
   versInscription = function() {
     this.router.navigate(['/inscription'])

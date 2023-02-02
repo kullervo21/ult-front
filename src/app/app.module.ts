@@ -21,7 +21,8 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginFormComponent } from './sign-in-form/login-form.component';
 import { PanierComponent } from './panier/panier.component';
-
+import { LoginService } from './login.service';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { PanierComponent } from './panier/panier.component';
     PageNotFoundComponent,
     LoginFormComponent,
     PanierComponent,
-
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,7 @@ import { PanierComponent } from './panier/panier.component';
     ReactiveFormsModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

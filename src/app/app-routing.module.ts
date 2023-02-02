@@ -5,13 +5,13 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {SignUpFormComponent} from './sign-up-form/sign-up-form.component';
 import {LoginFormComponent} from './sign-in-form/login-form.component';
 import {PanierComponent} from './panier/panier.component';
-
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
 
   { path: 'produits', component: ListeProduitComponent },
   { path: 'inscription', component: SignUpFormComponent },
-  { path: 'identification', component:  LoginFormComponent },
+  { path: 'identification', component:  LoginComponent },
   { path:'panier', component: PanierComponent},
   {
     path: '',
