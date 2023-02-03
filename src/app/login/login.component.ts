@@ -11,13 +11,11 @@ import { LoginService } from '../login.service'
 })
 export class LoginComponent implements OnInit {
   formLogin = new FormGroup({
-    mailControl: new FormControl('', [Validators.required, Validators.email]),
-    passwdControl: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(/^.*[A-Z].*$/)]),
-            });
-  password;
-  adresseMail;
-  hide = true;
-  credential = {adresse_mail: '', password: ''};
+      mailControl: new FormControl('', [Validators.required, Validators.email]),
+      passwdControl: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(/^.*[A-Z].*$/)]),
+    });
+    hide = true;
+    credential = { adresse_mail: '', password: '' };
 
 
 
@@ -40,8 +38,8 @@ export class LoginComponent implements OnInit {
   }
 
   logUser() {
-    this.credential.adresse_mail = this.adresseMail;
-    this.credential.password =  this.password;
+    this.credential.adresse_mail = this.formLogin.get("mailControl").value;
+    this.credential.password = this.formLogin.get("passwdControl").value;
     this.loginService.authenticate(this.credential, () => {
       console.log("hello");
       this.router.navigateByUrl('/inscription')

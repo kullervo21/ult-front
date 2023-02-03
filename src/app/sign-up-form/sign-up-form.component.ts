@@ -21,7 +21,6 @@ export class SignUpFormComponent implements OnInit {
     passwdControl:  new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(/^.*[A-Z].*$/)]),
   });
 
-
   hide = true;
   nom;
   prenom;
@@ -72,14 +71,14 @@ export class SignUpFormComponent implements OnInit {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     this.httpClient.post('http://localhost:8080/addUser', JSON.stringify(
       {
-        adresse_mail: this.adresse_mail,
-        nom: this.nom,
-        prenom: this.prenom,
-        adresse: this.rue,
-        cp: this.cp,
-        ville: this.ville,
-        telephone: this.telephone,
-        password: this.password
+        adresse_mail: this.form.get("this.adresse_mail").value,
+        nom: this.form.get("this.nom").value,
+        prenom: this.form.get("this.prenom").value,
+        adresse: this.form.get("this.rue").value,
+        cp: this.form.get("this.cp").value,
+        ville: this.form.get("this.ville").value,
+        telephone: this.form.get("this.telephone").value,
+        password: this.form.get("this.password").value
       }),
       {headers}).subscribe((res: { message: string }) => {
         console.log(res);
