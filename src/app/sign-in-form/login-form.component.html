@@ -1,14 +1,18 @@
 <div class="signin-container" [formGroup]="formLogin">
   <mat-form-field>
-    <input matInput placeholder="Entrez votre adresse mail" formControlName="mailControl" required [(ngModel)]="adresseMail">
+    <input matInput placeholder="Entrez votre adresse mail" formControlName="mailControl" required
+           [(ngModel)]="adresseMail">
     <mat-error *ngIf="formLogin.get('mailControl').invalid">{{getErrorMessageMail()}}</mat-error>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Entrez votre mot de passe" [type]="hide ? 'password' : 'text'" formControlName="passwdControl" required [(ngModel)]="password">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <input matInput placeholder="Entrez votre mot de passe" [type]="hide ? 'password' : 'text'"
+           formControlName="passwdControl" required [(ngModel)]="password">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
     <mat-error *ngIf="formLogin.get('passwdControl').invalid">{{getErrorMessagePasswd()}}</mat-error>
   </mat-form-field>
-  <button mat-raised-button (click)="register()" >Valider</button>
+  <button mat-raised-button (click)="register()">Valider</button>
+  
 </div>

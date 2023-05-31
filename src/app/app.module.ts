@@ -23,6 +23,7 @@ import { LoginFormComponent } from './sign-in-form/login-form.component';
 import { PanierComponent } from './panier/panier.component';
 import { LoginService } from './login.service';
 import { LoginComponent } from './login/login.component';
+import { ContentComponent } from './content/content.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { LoginComponent } from './login/login.component';
     LoginFormComponent,
     PanierComponent,
     LoginComponent,
+    ContentComponent,
   ],
   imports: [
     BrowserModule,

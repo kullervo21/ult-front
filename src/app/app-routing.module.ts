@@ -6,16 +6,27 @@ import {SignUpFormComponent} from './sign-up-form/sign-up-form.component';
 import {LoginFormComponent} from './sign-in-form/login-form.component';
 import {PanierComponent} from './panier/panier.component';
 import {LoginComponent} from './login/login.component';
+import {ContentComponent} from './content/content.component';
 
 const routes: Routes = [
 
-  { path: 'produits', component: ListeProduitComponent },
+  {
+    path: 'home',
+    component: ContentComponent,
+    children: [
+      {
+        path: 'produits',
+        component: ListeProduitComponent,
+        outlet: 'bodyContent'
+      }
+    ]
+  },
   { path: 'inscription', component: SignUpFormComponent },
   { path: 'identification', component:  LoginComponent },
   { path:'panier', component: PanierComponent},
   {
     path: '',
-    redirectTo: '/produits',
+    redirectTo: '/home/(bodyContent:produits)',
     pathMatch: 'full'
   },
   { path: '**', component: PageNotFoundComponent }

@@ -14,7 +14,11 @@ export class MenuComponent implements OnInit {
   }
 
   goToMenu(){
-    this.router.navigate(['/produits'])
+    /* signature de la méthode navigate : navigate(commands: any[], extras?: NavigationExtras): Promise<boolean>;
+    *     - commands est un tableau d'objets qui décrivent le chemin d'itinéraire à suivre,
+    *     - extras est un objet qui définit des options supplémentaires pour la navigation.
+    */
+    this.router.navigate(['/home', { outlets: { bodyContent: ['produits'] }}], { skipLocationChange: true })
   }
 
 

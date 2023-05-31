@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-sign-in-up',
@@ -11,7 +12,7 @@ export class SignInUpComponent implements OnInit {
   client = null;
   @Output() signIn: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit() {
     const clientJson = localStorage.getItem('client');
